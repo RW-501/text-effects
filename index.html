@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text Effects</title>
+  <style>
+    /* Center the label */
+    .center-label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="center-label" id="label">Hello, World!</div>
+
+  <!-- Buttons for each effect -->
+  <button onclick="applyEffect('text-shadow')">Text Shadow</button>
+  <button onclick="applyEffect('gradient-text')">Gradient Text</button>
+  <button onclick="applyEffect('underline-text')">Underline Text</button>
+  <button onclick="applyEffect('strike-through-text')">Strike-through Text</button>
+  <button onclick="applyEffect('capitalize-text')">Capitalize Text</button>
+  <button onclick="applyEffect('uppercase-text')">Uppercase Text</button>
+  <button onclick="applyEffect('lowercase-text')">Lowercase Text</button>
+  <button onclick="applyEffect('rotate-text')">Rotate Text</button>
+  <button onclick="applyEffect('skew-text')">Skew Text</button>
+  <button onclick="applyEffect('highlight-text')">Highlight Text</button>
+  <button onclick="applyEffect('curved-text')">Curved Text</button>
+  <button onclick="applyEffect('outlined-text')">Outlined Text</button>
+  <button onclick="applyEffect('glow-text')">Glow Text</button>
+  <button onclick="applyEffect('three-d-text')">3D Text</button>
+  <button onclick="applyEffect('vertical-text')">Vertical Text</button>
+
+  <!-- Button to show code with auto copy -->
+  <button onclick="showCode()">Show Code</button>
+
+  <!-- Pre element to display code -->
+  <pre id="code"></pre>
+
+  <script>
+    // Apply effect to the label
+    function applyEffect(effect) {
+      document.getElementById('label').className = effect;
+    }
+
+    // Show code with auto copy
+    function showCode() {
+      var code = document.documentElement.innerHTML;
+      document.getElementById('code').textContent = code;
+
+      // Auto copy code to the clipboard
+      navigator.clipboard.writeText(code)
+        .then(() => {
+          alert('Code copied to clipboard!');
+        })
+        .catch((error) => {
+          console.error('Failed to copy code:', error);
+        });
+    }
+  </script>
+</body>
+</html>
