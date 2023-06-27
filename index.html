@@ -12,6 +12,22 @@
       font-size: 24px;
       font-weight: bold;
     }
+
+    /* Ascending animation */
+    .ascend {
+      animation: ascendAnimation 1s;
+    }
+
+    @keyframes ascendAnimation {
+      0% {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
   </style>
 </head>
 <body>
@@ -43,7 +59,10 @@
   <script>
     // Apply effect to the label
     function applyEffect(effect) {
-      document.getElementById('label').className = effect;
+      var label = document.getElementById('label');
+      label.className = 'center-label'; // Reset the label class
+      void label.offsetWidth; // Trigger reflow to remove animation class instantly
+      label.classList.add('ascend', effect);
     }
 
     // Show code with auto copy
